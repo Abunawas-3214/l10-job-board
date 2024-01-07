@@ -20,7 +20,11 @@
 
             <ul class="flex space-x-2">
                 @auth
-                    <li>{{ auth()->user()->name ?? 'Anonymous' }}</li>
+                    <li>
+                        <a href="{{ route('my-job-applications.index') }}">
+                            {{ auth()->user()->name ?? 'Anonymous' }}: Applications
+                        </a>
+                    </li>
                     <li>
                         <form action="{{ route('auth.destroy') }}" method="POST">
                             @csrf
@@ -33,6 +37,15 @@
                 @endauth
             </ul>
         </nav>
+
+        @if (session('success'))
+            <div role="alert"
+                class="p-4 my-8 text-green-700 bg-green-100 border-l-4 border-green-300 rounded-md opacity-75">
+                <p class="font-bold">Success!</p>
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
+
         {{ $slot }}
     </body>
 
