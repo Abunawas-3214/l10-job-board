@@ -10,7 +10,7 @@ class JobApplication extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['expected_salary', 'job_id', 'user_id'];
+    protected $fillable = ['expected_salary', 'job_id', 'user_id', 'cv_path'];
 
     public function job(): BelongsTo
     {
