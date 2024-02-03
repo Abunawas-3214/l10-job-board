@@ -1,3 +1,3 @@
-<article {{ $attributes->class(['p-4 bg-white border rounded-md shadow-sm border-slate-300']) }}>
+<article {{ $attributes->class(['rounded-md border border-slate-300 bg-white p-4 shadow-sm']) }}>
     {{ $slot }}
 </article>

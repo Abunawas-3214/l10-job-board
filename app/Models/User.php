@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -54,7 +55,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(JobApplication::class)->with([
             'job' => fn ($query) => $query->withCount('jobApplications')
-                ->withAvg('jobApplications', 'expected_salary'),
+                ->withAvg('jobApplications', 'expected_salary')
+                ->withTrashed(),
             'job.employer'
         ])->latest();
     }

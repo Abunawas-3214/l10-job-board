@@ -5,12 +5,12 @@
             @csrf
 
             <div class="mb-8">
-                <label for="email" class="block mb-2 text-sm font-medium text-slate-900">E-Mail</label>
+                <x-label for="email" :required="true">E-Mail</x-label>
                 <x-text-input name="email" />
             </div>
 
             <div class="mb-8">
-                <label for="passowrd" class="block mb-2 text-sm font-medium text-slate-900">Password</label>
+                <x-label for="passowrd" :required="true">Password</x-label>
                 <x-text-input name="password" type="password" />
             </div>
 
